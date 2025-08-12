@@ -7,6 +7,10 @@ jobs:
   curl:
     runs-on: windows-latest
     steps:
-      - name: Run a one-line script
+      - name: curl
         shell: bash
-        run: command -v curl | tee -a "$GITHUB_STEP_SUMMARY"
+        run: |
+          (
+            command -v curl
+            curl --version
+          ) | tee -a "$GITHUB_STEP_SUMMARY"
